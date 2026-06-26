@@ -1,0 +1,16 @@
+# Datasets
+data/
+
+# CSV files
+*.csv
+
+# Parquet files
+*.parquet
+
+# Models
+*.pkl
+*.joblib
+
+# Python
+__pycache__/
+.ipynb_checkpoints/

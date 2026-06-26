@@ -4,6 +4,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 DATA_DIR = PROJECT_ROOT / "data"
 MODEL_DIR = PROJECT_ROOT / "models"
+REPORT_DIR = PROJECT_ROOT / "reports"
 
 TRAIN_DATA = DATA_DIR / "UNSW_NB15_training-set.parquet"
 TEST_DATA = DATA_DIR / "UNSW_NB15_testing-set.parquet"

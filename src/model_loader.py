@@ -1,6 +1,6 @@
 import joblib
 
-from src.config import RANDOM_FOREST_MODEL, LABEL_ENCODERS
+from src.config import RANDOM_FOREST_MODEL, LABEL_ENCODERS, SCALER_PATH
 
 
 def load_random_forest():
@@ -21,3 +21,10 @@ def load_label_encoders():
         )
 
     return joblib.load(LABEL_ENCODERS)
+
+def load_scaler():
+    if not SCALER_PATH.exists():
+        raise FileNotFoundError(
+            f"Scaler file not found:\n{SCALER_PATH}"
+        )
+    return joblib.load(SCALER_PATH)

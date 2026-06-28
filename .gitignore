@@ -1,16 +1,33 @@
-# Datasets
-data/
-
-# CSV files
-*.csv
-
-# Parquet files
-*.parquet
-
-# Models
-*.pkl
-*.joblib
-
 # Python
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Datasets
+*.parquet
+*.csv
+
+# Virtual Environment
+.venv/
+venv/
+
+# Jupyter
 .ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reports
+reports/
+
+# Environment
+.env
+
+# Logs
+*.log

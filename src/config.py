@@ -11,3 +11,4 @@ TEST_DATA = DATA_DIR / "UNSW_NB15_testing-set.parquet"
 
 RANDOM_FOREST_MODEL = MODEL_DIR / "random_forest_model.pkl"
 LABEL_ENCODERS = MODEL_DIR / "label_encoders.pkl"
+SCALER_PATH = MODEL_DIR / "scaler.pkl"

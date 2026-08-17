@@ -1,0 +1,42 @@
+from pydantic import BaseModel, Field
+
+class PredictionRequest(BaseModel):
+    dur: float = Field(..., description="Record total duration")
+    proto: str = Field(..., description="Transaction protocol")
+    service: str = Field(..., description="http, ftp, smtp, ssh, dns, ftp-data ,irc and (-) if not much used service")
+    state: str = Field(..., description="Indicates to the state and its dependent protocol, e.g. ACC, CLO, CON, ECO, ECR, FIN, INT, MAS, PAR, REQ, RST, TST, TXD, URH, URN, and (-) (if not used state)")
+    spkts: int = Field(..., description="Source to destination packet count")
+    dpkts: int = Field(..., description="Destination to source packet count")
+    sbytes: int = Field(..., description="Source to destination transaction bytes")
+    dbytes: int = Field(..., description="Destination to source transaction bytes")
+    rate: float = Field(..., description="Record total bytes")
+    sload: float = Field(..., description="Source bits per second")
+    dload: float = Field(..., description="Destination bits per second")
+    sloss: int = Field(..., description="Source packets retransmitted or dropped")
+    dloss: int = Field(..., description="Destination packets retransmitted or dropped")
+    sinpkt: float = Field(..., description="Source interpacket arrival time (mSec)")
+    dinpkt: float = Field(..., description="Destination interpacket arrival time (mSec)")
+    sjit: float = Field(..., description="Source jitter (mSec)")
+    djit: float = Field(..., description="Destination jitter (mSec)")
+    swin: int = Field(..., description="Source TCP window advertisement value")
+    stcpb: int = Field(..., description="Source TCP base sequence number")
+    dtcpb: int = Field(..., description="Destination TCP base sequence number")
+    dwin: int = Field(..., description="Destination TCP window advertisement value")
+    tcprtt: float = Field(..., description="TCP connection setup round-trip time")
+    synack: float = Field(..., description="TCP connection setup time, the time between the SYN and the SYN_ACK packets")
+    ackdat: float = Field(..., description="TCP connection setup time, the time between the SYN_ACK and the ACK packets")
+    smean: int = Field(..., description="Mean of the flow packet size transmitted by the src")
+    dmean: int = Field(..., description="Mean of the flow packet size transmitted by the dst")
+    trans_depth: int = Field(..., description="Represents the pipelined depth into the connection of http request/response transaction")
+    response_body_len: int = Field(..., description="Actual uncompressed content size of the data transferred from the server's http service")
+    ct_src_dport_ltm: int = Field(..., description="No of connections of the same source address (1) in 100 connections according to the last time (26)")
+    ct_dst_sport_ltm: int = Field(..., description="No of connections of the same destination address (3) in 100 connections according to the last time (26)")
+    is_ftp_login: int = Field(..., description="1 if the ftp session is accessed by user and password; 0 otherwise.")
+    ct_ftp_cmd: int = Field(..., description="No of flows that has a command in ftp session.")
+    ct_flw_http_mthd: int = Field(..., description="No. of flows that has methods such as Get and Post in http service.")
+    is_sm_ips_ports: int = Field(..., description="If source (1) and destination (3) IP addresses equal and port numbers (2)(4) equal then, this variable takes value 1 else 0")
+
+from typing import Literal
+
+class AlertUpdate(BaseModel):
+    status: Literal["Open", "Acknowledged", "Investigating", "Resolved", "False Positive"] = Field(..., description="The new status of the alert")

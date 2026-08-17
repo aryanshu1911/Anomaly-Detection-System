@@ -35,3 +35,6 @@ reports/
 # Models
 models/
 *.pkl
+
+# Database
+data/*.db

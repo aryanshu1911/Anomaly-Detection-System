@@ -1,0 +1,16 @@
+# Pyrefly configuration for Anomaly Detection System
+# Forces Pyrefly to use the project's .venv interpreter instead of the global Python.
+# This resolves "Cannot find module" errors for sqlalchemy, fastapi, pandas, sklearn, etc.
+
+python-interpreter-path = ".venv/Scripts/python.exe"
+
+site-package-path = [
+    ".venv/Lib/site-packages"
+]
+
+# Project source roots for internal import resolution
+search-path = [
+    ".",
+    "backend",
+    "src"
+]

@@ -40,5 +40,4 @@ models/
 data/*.db
 
 # Node
-node_modules/
-dist/
+frontend/node_modules/

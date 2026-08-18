@@ -38,3 +38,7 @@ models/
 
 # Database
 data/*.db
+
+# Node
+node_modules/
+dist/
